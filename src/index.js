@@ -8,10 +8,10 @@ import { createLogger } from 'redux-logger';
 
 import userReducer from './reducers/userReducer';
 
-import App from './App'
+import App from './App';
 
 const initialState = {
-  user: {}
+  user: {},
 };
 
 const store = createStore(
@@ -23,7 +23,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={ store }>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

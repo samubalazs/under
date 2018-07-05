@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FadeLoader } from 'react-spinners';
 
 import {
   userRequest,
@@ -10,7 +11,6 @@ class userPage extends Component {
     super(props);
 
     let user;
-    let loading;
 
     this.state = {
       user,
@@ -19,24 +19,34 @@ class userPage extends Component {
   }
 
   componentDidMount() {
-      this.setState({
-        user: this.props.userRequest(),
-      });
+    this.setState({
+      user: this.props.userRequest(),
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps);
     if (prevProps.user !== this.props.user) {
-      this.setState({
-        loading: false,
-      });
+      setTimeout(() => {
+        this.setState({
+          loading: false,
+        });
+      }, 1000)
     }
   }
 
   render() {    
-    // const username = this.props.user[0].first_name;
+    const username =
+      !this.state.loading ? this.props.user[0].first_name : 'user';
     return (
-      <div>{this.state.loading ? 'loading' : 'x'}</div>
+      <div>
+        <FadeLoader
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+        {!this.state.loading &&
+          <p>I'm not loading {username}</p>
+        }
+      </div>
     );
   }
 }

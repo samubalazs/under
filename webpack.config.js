@@ -1,6 +1,6 @@
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -28,11 +28,11 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [{
-          loader: MiniCssExtractPlugin.loader, // creates style nodes from JS strings
+          loader: MiniCssExtractPlugin.loader,
         }, {
-          loader: "css-loader" // translates CSS into CommonJS
+          loader: "css-loader"
         }, {
-          loader: "sass-loader" // compiles Sess to CSS
+          loader: "sass-loader"
         }]
       }
     ]

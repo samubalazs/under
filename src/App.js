@@ -3,9 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
-import './App.scss';
-
 import routes from "./routes/";
+import './App.scss';
 
 const Title = styled.h1`
   font-size: 1.5em;
