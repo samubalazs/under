@@ -1,7 +1,7 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import userPage from "../components/user";
+import userPage from '../components/user';
 
 const Home = () => (
   <p>This is the home screen</p>
@@ -9,10 +9,10 @@ const Home = () => (
 
 const WillMatch = () => (
   <div>
-      <h2>This is the match page</h2>
-      <Helmet>
-          <title>Match Page</title>
-      </Helmet>
+    <h2>This is the match page</h2>
+    <Helmet>
+      <title>Match Page</title>
+    </Helmet>
   </div>
 );
 
@@ -26,17 +26,21 @@ const NoMatch = ({ location }) => (
 
 const routes = [
   {
-    path: "/",
-    component: userPage,
+    path: '/',
+    component: Home,
     exact: true,
   },
   {
-    path: "/will-match",
+    path: '/will-match',
     component: WillMatch,
   },
   {
-    path: "/will-not-match",
+    path: '/will-not-match',
     component: NoMatch,
+  },
+  {
+    path: '/user-details',
+    component: userPage,
   },
 ];
 

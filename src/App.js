@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
-import routes from "./routes/";
+import routes from './routes/';
 import './App.scss';
 
 const Title = styled.h1`
@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div className="container">
@@ -35,9 +35,12 @@ class App extends Component {
             <li>
               <Link to="/will-not-match">Will Not Match</Link>
             </li>
+            <li>
+              <Link to="/user-details">User details</Link>
+            </li>
           </ul>
           <Switch>
-            { routes.map( route => <Route key={ route.path } { ...route } /> ) }
+            { routes.map( (route) => <Route key={ route.path } { ...route } /> ) }
           </Switch>
         </div>
       </div>

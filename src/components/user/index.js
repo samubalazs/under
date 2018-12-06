@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FadeLoader } from 'react-spinners';
+import Helmet from 'react-helmet';
 
 import {
   userRequest,
@@ -30,21 +31,24 @@ class userPage extends Component {
         this.setState({
           loading: false,
         });
-      }, 1000)
+      }, 1000);
     }
   }
 
-  render() {    
+  render() {
     const username =
-      !this.state.loading ? this.props.user[0].first_name : 'user';
+      !this.state.loading ? this.props.user[0].firstName : 'user';
     return (
       <div>
+        <Helmet>
+          <title>User page</title>
+        </Helmet>
         <FadeLoader
           color={'#123abc'}
           loading={this.state.loading}
         />
         {!this.state.loading &&
-          <p>I'm not loading {username}</p>
+          <p>Not loading {username}</p>
         }
       </div>
     );
@@ -53,16 +57,16 @@ class userPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-      user: state.user,
+    user: state.user,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        userRequest: () => {
-            dispatch(userRequest());
-        },
-    };
+  return {
+    userRequest: () => {
+      dispatch(userRequest());
+    },
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(userPage);
