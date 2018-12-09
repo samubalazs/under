@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import userPage from '../components/user';
+import radarChart from '../components/charts/radarChart';
 
 const Home = () => (
   <p>This is the home screen</p>
@@ -41,6 +42,10 @@ const routes = [
   {
     path: '/user-details',
     component: userPage,
+  },,
+  {
+    path: '/radar-chart',
+    component: radarChart,
   },
 ];
 

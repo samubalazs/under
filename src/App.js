@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Route, Link, Switch } from 'react-router-dom';
-import styled from 'styled-components';
 
 import routes from './routes/';
 import './App.scss';
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: red;
-`;
 
 class App extends Component {
   constructor(props) {
@@ -20,29 +13,26 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Button>hello</Button>
-        <Title>
-          Hello World, this is my first styled component!
-        </Title>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/will-match">Will Match</Link>
-            </li>
-            <li>
-              <Link to="/will-not-match">Will Not Match</Link>
-            </li>
-            <li>
-              <Link to="/user-details">User details</Link>
-            </li>
-          </ul>
-          <Switch>
-            { routes.map( (route) => <Route key={ route.path } { ...route } /> ) }
-          </Switch>
-        </div>
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <Link to="/" className="nav-link active">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/will-match" className="nav-link">Will Match</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/will-not-match" className="nav-link">Will Not Match</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/user-details" className="nav-link">User details</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/radar-chart" className="nav-link">Radar chart</Link>
+          </li>
+        </ul>
+        <Switch>
+          { routes.map( (route) => <Route key={ route.path } { ...route } /> ) }
+        </Switch>
       </div>
     );
   }
