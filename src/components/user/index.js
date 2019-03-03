@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { FadeLoader } from 'react-spinners';
 import Helmet from 'react-helmet';
 
+import RadarChart from '../charts/radarChart';
+
 import {
   userRequest,
 } from '../../actions/userActions';
@@ -38,10 +40,13 @@ class userPage extends Component {
   render() {
     const username =
       !this.state.loading ? this.props.user[0].firstName : 'user';
+    const bigFive =
+      !this.state.loading ? this.props.user[0].bigFive : {};
+
     return (
       <div>
         <Helmet>
-          <title>User page</title>
+          <title>Under Constructon {username}</title>
         </Helmet>
         <FadeLoader
           color={'#123abc'}
@@ -49,6 +54,9 @@ class userPage extends Component {
         />
         {!this.state.loading &&
           <p>Not loading {username}</p>
+        }
+        {!this.state.loading &&
+          <RadarChart data={bigFive} />
         }
       </div>
     );
